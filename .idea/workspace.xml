@@ -4,29 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d1e1963-2d88-4925-90c9-a8189b8e6758" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/AddPartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/MainApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/wright/firstproject/add-part.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/wright/firstproject/main.fxml" afterDir="false" />
+    <list default="true" id="6d1e1963-2d88-4925-90c9-a8189b8e6758" name="Changes" comment="First commit first pages built">
+      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Controllers/Inventory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Controllers/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Controllers/ModifyPartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Models/InHouse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Models/OutSourced.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Models/Part.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Models/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/wright/firstproject/modify-part.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wright/firstproject/AddPartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Controllers/AddPartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wright/firstproject/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wright/firstproject/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/wright/firstproject/add-part.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wright/firstproject/add-part.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/wright/firstproject/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wright/firstproject/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -83,6 +84,14 @@
       <option name="presentableId" value="Default" />
       <updated>1662439378763</updated>
     </task>
+    <task id="LOCAL-00001" summary="First commit first pages built">
+      <created>1662490898709</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662490898709</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,5 +104,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First commit first pages built" />
+    <option name="LAST_COMMIT_MESSAGE" value="First commit first pages built" />
   </component>
 </project>
