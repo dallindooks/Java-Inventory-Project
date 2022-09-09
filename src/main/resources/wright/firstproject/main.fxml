@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wright.firstproject.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wright.firstproject.Controllers.MainController">
     <children>
         <GridPane prefHeight="600.0" prefWidth="1000.0">
             <columnConstraints>
@@ -33,21 +33,21 @@
                     </font>
                 </Label>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="414.0" stroke="BLACK" strokeType="INSIDE" width="450.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" focusTraversable="true" height="414.0" layoutX="35.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="450.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                <TableView maxHeight="-Infinity" maxWidth="-Infinity" mouseTransparent="true" prefHeight="300.0" prefWidth="400.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" focusTraversable="true" height="414.0" layoutX="35.0" layoutY="125.0" pickOnBounds="true" stroke="BLACK" strokeType="INSIDE" width="450.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                <TableView fx:id="partsTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="Part ID" />
-                        <TableColumn prefWidth="75.0" text="Part Name" />
-                        <TableColumn prefWidth="101.0" text="Inventory Level" />
-                        <TableColumn prefWidth="148.0" text="Price/ Cost Per unit" />
+                        <TableColumn fx:id="partIdCol" prefWidth="75.0" text="Part ID" />
+                        <TableColumn fx:id="partNameCol" prefWidth="92.0" text="Part Name" />
+                        <TableColumn fx:id="partInventoryCol" prefWidth="93.0" text="Inventory Level" />
+                        <TableColumn fx:id="partPriceCol" prefWidth="139.0" text="Price/ Cost Per unit" />
                     </columns>
                 </TableView>
-                <TableView maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                <TableView fx:id="productsTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="Product ID" />
-                        <TableColumn prefWidth="92.0" text="Product Name" />
-                        <TableColumn prefWidth="93.0" text="Inventory Level" />
-                        <TableColumn prefWidth="139.0" text="Price/ Cost Per unit" />
+                        <TableColumn fx:id="prodIdCol" prefWidth="75.0" text="Product ID" />
+                        <TableColumn fx:id="prodNameCol" prefWidth="92.0" text="Product Name" />
+                        <TableColumn fx:id="prodInvCol" prefWidth="93.0" text="Inventory Level" />
+                        <TableColumn fx:id="prodPriceCol" prefWidth="139.0" text="Price/ Cost Per unit" />
                     </columns>
                 </TableView>
                 <Button mnemonicParsing="false" prefWidth="54.0" text="Delete" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
@@ -55,7 +55,7 @@
                         <Insets bottom="35.0" right="50.0" />
                     </GridPane.margin>
                 </Button>
-                <Button mnemonicParsing="false" text="Modify" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                <Button mnemonicParsing="false" onAction="#goToModifyPart" text="Modify" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                     <GridPane.margin>
                         <Insets bottom="35.0" right="125.0" />
                     </GridPane.margin>
@@ -106,7 +106,7 @@
                         <Insets right="50.0" top="40.0" />
                     </GridPane.margin>
                 </TextField>
-                <Button fx:id="exitButton" mnemonicParsing="false" prefWidth="54.0" text="Exit" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                <Button fx:id="exitButton" mnemonicParsing="false" onAction="#getOuttaHere" prefWidth="54.0" text="Exit" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                     <GridPane.margin>
                         <Insets right="25.0" />
                     </GridPane.margin>
