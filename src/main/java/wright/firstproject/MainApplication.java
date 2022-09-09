@@ -16,7 +16,7 @@ public class MainApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
-
+        //Adding seed data
         Inventory.addSeedData();
     }
 

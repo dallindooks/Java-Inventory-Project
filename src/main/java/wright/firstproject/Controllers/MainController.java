@@ -64,12 +64,16 @@ public class MainController implements Initializable {
     }
 
     public void goToModifyPart(ActionEvent actionEvent) throws IOException{
-        selectedPart = (Part) partsTable.getSelectionModel().getSelectedItem();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/wright/firstproject/modify-part.fxml")));
-        Stage stage = (Stage)((javafx.scene.Node)actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setTitle("Modify Part");
-        stage.setScene(scene);
+        try {
+            selectedPart = (Part) partsTable.getSelectionModel().getSelectedItem();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/wright/firstproject/modify-part.fxml")));
+            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setTitle("Modify Part");
+            stage.setScene(scene);
+        } catch (Exception error){
+            Inventory.warnDialog("No Part Selected", "Please select a part to modify");
+        }
     }
 
     public static Part getSelectedPart(){

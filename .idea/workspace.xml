@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d1e1963-2d88-4925-90c9-a8189b8e6758" name="Changes" comment="First commit first pages built">
-      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Controllers/Inventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Controllers/ModifyPartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Models/InHouse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Models/OutSourced.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Models/Part.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Models/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/wright/firstproject/modify-part.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wright/firstproject/AddPartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/Controllers/AddPartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wright/firstproject/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wright/firstproject/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wright/firstproject/MainController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wright/firstproject/add-part.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wright/firstproject/add-part.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/wright/firstproject/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wright/firstproject/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +25,8 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -99,7 +87,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
