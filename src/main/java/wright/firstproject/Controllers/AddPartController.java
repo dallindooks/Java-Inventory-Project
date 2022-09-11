@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import wright.firstproject.MainApplication;
 import wright.firstproject.Models.InHouse;
 import wright.firstproject.Models.OutSourced;
 
@@ -35,6 +36,7 @@ public class AddPartController implements Initializable {
         Scene scene = new Scene(root);
         stage.setTitle("Main");
         stage.setScene(scene);
+        scene.getStylesheets().add(MainApplication.class.getResource("bootstrap3.css").toExternalForm());
     }
 
 
@@ -123,7 +125,7 @@ public class AddPartController implements Initializable {
     // sets up a unique Id in the uneditable Id field
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        partIdField.setText(String.valueOf(Inventory.getRandomId()));
+        partIdField.setText(String.valueOf(Inventory.getRandomPartId()));
 
     }
 }

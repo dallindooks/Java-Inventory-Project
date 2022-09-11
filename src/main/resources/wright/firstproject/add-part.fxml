@@ -45,7 +45,7 @@
                   <Insets left="100.0" />
                </GridPane.margin>
             </RadioButton>
-            <TextField fx:id="partIdField" editable="false" maxWidth="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="partIdField" disable="true" editable="false" maxWidth="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="partNameField" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="partInvField" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="partCostField" maxWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />

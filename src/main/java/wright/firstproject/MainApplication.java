@@ -16,6 +16,7 @@ public class MainApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+        scene.getStylesheets().add(MainApplication.class.getResource("bootstrap3.css").toExternalForm());
         //Adding seed data
         Inventory.addSeedData();
     }

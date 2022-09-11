@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import wright.firstproject.MainApplication;
 import wright.firstproject.Models.Part;
 import wright.firstproject.Models.InHouse;
 import wright.firstproject.Models.OutSourced;
@@ -43,6 +44,7 @@ public class ModifyPartController implements Initializable {
         Scene scene = new Scene(root);
         stage.setTitle("Main");
         stage.setScene(scene);
+        scene.getStylesheets().add(MainApplication.class.getResource("bootstrap3.css").toExternalForm());
     }
 
 
@@ -98,6 +100,10 @@ public class ModifyPartController implements Initializable {
             formSubmittable = false;
         }
         // adding new part fields to a new part and adding them to the parts list
+        // Tried several variations of this part of the method, I ran into an issue where if a user changes what kind of part instance
+        // this is (InHouse or Outsourced), then when updated the part would be an instance of both.
+        // this caused bugs when loading the selected part. In order to fix the easiest and most efficient method,
+        // is to delete the part and add a new one with all the original part's data.
         try{
             int addPartId = Integer.parseInt(partIdField.getText());
             String addPartName = partNameField.getText().trim();
@@ -109,6 +115,7 @@ public class ModifyPartController implements Initializable {
                 int machineId = Integer.parseInt(partManufacturerField.getText().trim());
                 InHouse addPart = new InHouse(addPartId, addPartName, addPartCost, addPartInv, addPartMin, addPartMax, machineId);
                 if (formSubmittable) {
+                    Inventory.deletePart(selectedPart);
                     Inventory.addPart(addPart);
                     toMain(actionEvent);
                 }
@@ -117,6 +124,7 @@ public class ModifyPartController implements Initializable {
                 String companyName = partManufacturerField.getText().trim();
                 OutSourced addPart = new OutSourced(addPartId, addPartName, addPartCost, addPartInv, addPartMin, addPartMax, companyName);
                 if (formSubmittable) {
+                    Inventory.deletePart(selectedPart);
                     Inventory.addPart(addPart);
                     toMain(actionEvent);
                 }
@@ -131,19 +139,19 @@ public class ModifyPartController implements Initializable {
     // populates data from selected part
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        partIdField.setText(String.valueOf(selectedPart.getId()));
-        partNameField.setText(selectedPart.getName());
-        partCostField.setText(String.valueOf(selectedPart.getPrice()));
-        partInvField.setText(String.valueOf(selectedPart.getStock()));
-        partMinField.setText(String.valueOf(selectedPart.getMin()));
-        partMaxField.setText(String.valueOf(selectedPart.getMax()));
-        if (selectedPart instanceof InHouse){
-            partManufacturerField.setText(String.valueOf(((InHouse) selectedPart).getMachineId()));
-            inHouse.isSelected();
-        }
-        if (selectedPart instanceof OutSourced){
-            partManufacturerField.setText(((OutSourced) selectedPart).getCompany());
-            outsourced.isSelected();
-        }
+            partIdField.setText(String.valueOf(selectedPart.getId()));
+            partNameField.setText(selectedPart.getName());
+            partCostField.setText(String.valueOf(selectedPart.getPrice()));
+            partInvField.setText(String.valueOf(selectedPart.getStock()));
+            partMinField.setText(String.valueOf(selectedPart.getMin()));
+            partMaxField.setText(String.valueOf(selectedPart.getMax()));
+            if (selectedPart instanceof InHouse) {
+                partManufacturerField.setText(String.valueOf(((InHouse) selectedPart).getMachineId()));
+                inHouse.setSelected(true);
+            }
+            if (selectedPart instanceof OutSourced) {
+                partManufacturerField.setText(((OutSourced) selectedPart).getCompany());
+                outsourced.setSelected(true);
+            }
     }
 }

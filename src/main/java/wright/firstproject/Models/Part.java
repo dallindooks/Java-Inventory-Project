@@ -1,5 +1,8 @@
 package wright.firstproject.Models;
 
+import javafx.collections.ObservableList;
+import wright.firstproject.Controllers.Inventory;
+
 public class Part {
     private int id;
     private String name;
@@ -63,6 +66,12 @@ public class Part {
 
     public void setMax(int max) {
         this.max = max;
+    }
+    public static Part getPartById(int partId){
+        ObservableList<Part> allParts = Inventory.getAllParts();
+        for (int i = 0; i < allParts.size(); i++) {
+            if (allParts.get(i).getId() == partId) return allParts.get(i);
+        } return null;
     }
 
 }
