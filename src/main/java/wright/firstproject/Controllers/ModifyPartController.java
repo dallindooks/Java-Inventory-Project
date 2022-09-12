@@ -20,7 +20,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
+/** This class manages the modify Part screen.
+ * LOGICAL ERROR I could not save a modified part that was changed from an inHouse to an outsourced  instance. I resolved this by deleting the original and saving the new part.
+ FUTURE ENHANCEMENT for changing a part from inHouse to Outsourced, I would want to work out some better logic for changing and removing the previous instance of the model. */
 public class ModifyPartController implements Initializable {
     public Part selectedPart = MainController.getSelectedPart();
     @FXML
@@ -47,7 +49,7 @@ public class ModifyPartController implements Initializable {
         scene.getStylesheets().add(MainApplication.class.getResource("bootstrap3.css").toExternalForm());
     }
 
-
+    /** method to set the machine id label and return a boolean toggle */
     // boolean toggle for parts made in house
     public boolean madeInHouse() {
         if (inHouse.isSelected()){
@@ -56,6 +58,7 @@ public class ModifyPartController implements Initializable {
         }
         return false;
     }
+    /** method to set the company name label and return a boolean toggle */
     // boolean toggle for outsourced parts
     public boolean madeOutsourced() {
         if (outsourced.isSelected()) {
@@ -64,7 +67,7 @@ public class ModifyPartController implements Initializable {
         }
         return false;
     }
-
+    /** method to save the modified part */
     public void onSave(ActionEvent actionEvent){
         //quick validation on save button click
         if (partNameField.getText().isEmpty() || partNameField.getText().matches(".*\\d.*")){
@@ -135,7 +138,7 @@ public class ModifyPartController implements Initializable {
         }
 
     }
-
+    /** method to initialize the values of the selected part and determine what label to use. */
     // populates data from selected part
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

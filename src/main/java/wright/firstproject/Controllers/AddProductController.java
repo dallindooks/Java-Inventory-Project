@@ -22,6 +22,10 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/** This is the class that controls the add product page.
+ RUNTIME ERROR The associated parts table used to affect the actual parts list.
+ this was resolved by creating a clone of the parts list on initialization of this page.
+ FUTURE ENHANCEMENT I would like to add listeners to the text field and add real time validation instead of validating on button submit.*/
 public class AddProductController implements Initializable {
     @FXML
     private TableColumn partIdCol, partNameCol, partInvCol, partPriceCol;
@@ -35,19 +39,19 @@ public class AddProductController implements Initializable {
     private ObservableList<Part> prodAssociatedParts = FXCollections.observableArrayList();
     private Part selectedPart;
     private boolean formSubmittable = true;
-
-    public void addAssociatedPart(ActionEvent actionEvent) {
+    /** method that adds parts to the associated parts table. */
+    public void addAssociatedPart() {
         selectedPart = (Part) allPartsTable.getSelectionModel().getSelectedItem();
         allParts.remove(selectedPart);
         prodAssociatedParts.add(selectedPart);
     }
-
-    public void removeAssociatedPart(ActionEvent actionEvent) {
+    /** method that removes an associated part from the associated parts table */
+    public void removeAssociatedPart() {
         selectedPart = (Part) associatedPartsTable.getSelectionModel().getSelectedItem();
         allParts.add(selectedPart);
         prodAssociatedParts.remove(selectedPart);
     }
-
+    /** method to save the product and do basic form validation */
     public void onSave(ActionEvent actionEvent) {
 
         if (prodNameField.getText().isEmpty() || prodNameField.getText().matches(".*\\d.*")){
@@ -90,6 +94,11 @@ public class AddProductController implements Initializable {
             Product addProduct = new Product(addProdId, addProdName, addProdCost, addProdInv, addProdMin, addProdMax, prodAssociatedParts);
             if (formSubmittable) {
                 Inventory.addProduct(addProduct);
+
+                    for (Part part : prodAssociatedParts){
+                        Inventory.associatedPartsList.add(part);
+                    }
+
                 toMain(actionEvent);
             }
             formSubmittable = true;
@@ -97,7 +106,7 @@ public class AddProductController implements Initializable {
             Inventory.warnDialog("Error adding product", "Double check your input criteria");
         }
     }
-
+    /** method to change the scene back to the main screen */
     public void toMain(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/wright/firstproject/main.fxml")));
         Stage stage = (Stage)((javafx.scene.Node)actionEvent.getSource()).getScene().getWindow();
@@ -106,7 +115,7 @@ public class AddProductController implements Initializable {
         stage.setScene(scene);
         scene.getStylesheets().add(MainApplication.class.getResource("bootstrap3.css").toExternalForm());
     }
-
+    /** initializes the tables and gets a random Id for the productId field */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         associatedPartsTable.setItems(prodAssociatedParts);

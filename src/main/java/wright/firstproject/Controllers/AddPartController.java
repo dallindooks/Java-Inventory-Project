@@ -18,7 +18,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
+/** This class manages the add Part screen.
+  LOGICAL ERROR I used a boolean toggle (see formSubmittable) for each textField to 1) tell the user what they did wrong, and 2) not allow a form with errors to be submitted.
+  FUTURE ENHANCEMENT I would add validation that disables the save button until all criteria are met. */
 public class AddPartController implements Initializable {
 
     public Label partManufacturer;
@@ -30,6 +32,7 @@ public class AddPartController implements Initializable {
     private boolean formSubmittable = true;
 
     // function to change window back to main
+    /** changes the screen back to main */
     public void toMain(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/wright/firstproject/main.fxml")));
         Stage stage = (Stage)((javafx.scene.Node)actionEvent.getSource()).getScene().getWindow();
@@ -39,7 +42,8 @@ public class AddPartController implements Initializable {
         scene.getStylesheets().add(MainApplication.class.getResource("bootstrap3.css").toExternalForm());
     }
 
-
+    /** method to set the label for the machineId
+     @returns a boolean to toggle when adding the part */
     // boolean toggle for parts made in house
     public boolean madeInHouse() {
         if (inHouse.isSelected()){
@@ -48,6 +52,8 @@ public class AddPartController implements Initializable {
         }
         return false;
     }
+    /** method to set the label for the companyName
+     @returns a boolean to toggle when adding the part */
     // boolean toggle for outsourced parts
     public boolean madeOutsourced() {
         if (outsourced.isSelected()) {
@@ -56,7 +62,7 @@ public class AddPartController implements Initializable {
         }
         return false;
     }
-
+    /** method to save the new part and does some basic form validation. */
     public void onSave(ActionEvent actionEvent){
         //quick validation on save button click
         if (partNameField.getText().isEmpty() || partNameField.getText().matches(".*\\d.*")){
@@ -121,7 +127,7 @@ public class AddPartController implements Initializable {
         }
 
     }
-
+    /** method to initialize the partId field with a unique id. */
     // sets up a unique Id in the uneditable Id field
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

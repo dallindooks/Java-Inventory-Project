@@ -23,7 +23,11 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static wright.firstproject.Controllers.MainController.selectedProduct;
-
+/** Class used to manage the modify product screen.
+ * LOGICAL ERROR I had an issue where the adding and removing of parts from the associated parts table would affect the total parts list. I was able to create a clone of the parts list
+ * by initializing on declaration to the value of the parts list.
+ FUTURE ENHANCEMENT The associated parts list can get tricky when knowing what to display in each table. A lot of duplicate parts are stored and the way to combat this,
+ is to constantly remove duplicates from both the parts and associated parts list. I would hope to reduce the amount of for loops used to do this.*/
 public class ModifyProductController implements Initializable {
     @FXML
     private TableColumn partIdCol, partNameCol, partInvCol, partPriceCol;
@@ -37,7 +41,7 @@ public class ModifyProductController implements Initializable {
     private ObservableList<Part> associatedParts = FXCollections.observableArrayList(selectedProduct.getAssociatedParts());
     private Part selectedPart;
     private boolean formSubmittable = true;
-
+    /** method to add an associated part to a product. */
     // when adding and removing parts there is now a check to see if the part already exists in the
     // target table and will remove the duplicate.
     public void addAssociatedPart() {
@@ -51,7 +55,7 @@ public class ModifyProductController implements Initializable {
         allParts.remove(selectedPart);
         associatedParts.add(selectedPart);
     }
-
+    /** method to remove an associated part from a product. */
     public void removeAssociatedPart(ActionEvent actionEvent) {
         selectedPart = (Part) associatedPartsTable.getSelectionModel().getSelectedItem();
         for (int i = 0; i< allParts.size(); i++){
@@ -63,7 +67,7 @@ public class ModifyProductController implements Initializable {
         allParts.add(selectedPart);
         associatedParts.remove(selectedPart);
     }
-
+    /** method to save a product after being modified */
     public void onSave(ActionEvent actionEvent) {
 
         if (prodNameField.getText().isEmpty() || prodNameField.getText().matches(".*\\d.*")){
@@ -113,7 +117,7 @@ public class ModifyProductController implements Initializable {
             Inventory.warnDialog("Error adding product", "Double check your input criteria");
         }
     }
-
+    /** changes screen back to the main screen */
     public void toMain(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/wright/firstproject/main.fxml")));
         Stage stage = (Stage)((javafx.scene.Node)actionEvent.getSource()).getScene().getWindow();
@@ -122,7 +126,7 @@ public class ModifyProductController implements Initializable {
         stage.setScene(scene);
         scene.getStylesheets().add(MainApplication.class.getResource("bootstrap3.css").toExternalForm());
     }
-
+    /** initializes the page with the selected product's data. */
     // initializing the selected product data
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
