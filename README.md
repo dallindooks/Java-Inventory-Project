@@ -6,6 +6,11 @@
 <li>Download a Java IDE to run the project. I used Intellij.</li>
 <li>Hit run and preview the built in seed data</li>
 </ol>
+
+![Screenshot 2022-09-13 114704](https://user-images.githubusercontent.com/20341544/189985262-6b5543ce-e93b-4c84-98e9-2e815a3467ca.png)
+![Screenshot 2022-09-13 114727](https://user-images.githubusercontent.com/20341544/189985308-542b0dd3-a103-493a-8ac6-d3edecd17725.png)
+![Screenshot 2022-09-13 114747](https://user-images.githubusercontent.com/20341544/189985328-6224737b-fc06-4164-8cac-724fd05d7993.png)
+
 <h1>WGU Software 1 final project</h1>
 <strong>COMPETENCIES</strong>
 430.02.05 : Classes and Interfaces
