@@ -7,7 +7,10 @@ import javafx.stage.Stage;
 import wright.firstproject.Controllers.Inventory;
 
 import java.io.IOException;
-
+/** Main class used to run the application
+ RUNTIME ERROR the application would add the seed data every time the main screen opened. This was fixed by making an add seed data method in the
+ inventory class and calling it in the start method so that it is only called once.
+ FUTURE ENHANCEMENT would be to connect this to some kind of database to save data even when the application is not running*/
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {

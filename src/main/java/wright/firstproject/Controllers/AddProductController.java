@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
  this was resolved by creating a clone of the parts list on initialization of this page.
  FUTURE ENHANCEMENT I would like to add listeners to the text field and add real time validation instead of validating on button submit.*/
 public class AddProductController implements Initializable {
+    public TextField partSearchBar;
     @FXML
     private TableColumn partIdCol, partNameCol, partInvCol, partPriceCol;
     @FXML
@@ -41,9 +42,17 @@ public class AddProductController implements Initializable {
     private boolean formSubmittable = true;
     /** method that adds parts to the associated parts table. */
     public void addAssociatedPart() {
+        boolean existsToggle = false;
         selectedPart = (Part) allPartsTable.getSelectionModel().getSelectedItem();
         allParts.remove(selectedPart);
-        prodAssociatedParts.add(selectedPart);
+        for (Part part: prodAssociatedParts){
+            if (selectedPart.getId() == part.getId()){
+                existsToggle = true;
+            }
+        }
+        if (!existsToggle) {
+            prodAssociatedParts.add(selectedPart);
+        }
     }
     /** method that removes an associated part from the associated parts table */
     public void removeAssociatedPart() {
@@ -132,5 +141,14 @@ public class AddProductController implements Initializable {
         assPartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         prodIdField.setText(String.valueOf(Inventory.getRandomProductId()));
+
+        partSearchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            partSearch(newValue);
+        });
+    }
+
+    public void partSearch(String searchTerm) {
+        String loweredSearch = searchTerm.toLowerCase();
+        allPartsTable.setItems(Inventory.lookupPart(loweredSearch));
     }
 }

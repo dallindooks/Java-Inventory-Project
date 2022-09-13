@@ -104,7 +104,7 @@
           <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField maxWidth="200.0" promptText="Search for a part by Id or Name" GridPane.halignment="RIGHT">
+            <TextField fx:id="partSearchBar" maxWidth="200.0" promptText="Search for a part by Id or Name" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="75.0" />
                </GridPane.margin>

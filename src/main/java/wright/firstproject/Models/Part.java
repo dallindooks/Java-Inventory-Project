@@ -2,7 +2,7 @@ package wright.firstproject.Models;
 
 import javafx.collections.ObservableList;
 import wright.firstproject.Controllers.Inventory;
-
+/** Class that defines the properties of a part object. */
 public class Part {
     private int id;
     private String name;

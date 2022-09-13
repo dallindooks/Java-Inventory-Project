@@ -30,6 +30,8 @@ import static wright.firstproject.Controllers.MainController.selectedProduct;
  is to constantly remove duplicates from both the parts and associated parts list. I would hope to reduce the amount of for loops used to do this.*/
 public class ModifyProductController implements Initializable {
     @FXML
+    private TextField partSearchBar;
+    @FXML
     private TableColumn partIdCol, partNameCol, partInvCol, partPriceCol;
     @FXML
     private TableColumn assPartIdCol, assPartNameCol, assPartInvCol, assPartPriceCol;
@@ -149,5 +151,14 @@ public class ModifyProductController implements Initializable {
         prodStockField.setText(String.valueOf(selectedProduct.getStock()));
         prodMinField.setText(String.valueOf(selectedProduct.getMin()));
         prodMaxField.setText(String.valueOf(selectedProduct.getMax()));
+
+        partSearchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            partSearch(newValue);
+        });
+    }
+
+    public void partSearch(String searchTerm) {
+        String loweredSearch = searchTerm.toLowerCase();
+        allPartsTable.setItems(Inventory.lookupPart(loweredSearch));
     }
 }

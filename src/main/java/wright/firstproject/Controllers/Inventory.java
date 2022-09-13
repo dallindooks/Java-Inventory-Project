@@ -140,7 +140,12 @@ public class Inventory {
     }
     /** method to remove a product */
     public static boolean deleteProduct(Product selectedProd){
-        return products.remove(selectedProd);
+        if (selectedProd.getAssociatedParts().size() == 0){
+            return products.remove(selectedProd);
+        } else {
+            warnDialog("This product has associated parts","Please remove associated parts before deleting.");
+        }
+        return false;
     }
     /** method to look up a part by its ID */
     public static Part lookupPart(int id){

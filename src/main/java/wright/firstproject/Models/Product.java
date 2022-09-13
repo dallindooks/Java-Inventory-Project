@@ -2,7 +2,7 @@ package wright.firstproject.Models;
 
 import javafx.collections.ObservableList;
 import wright.firstproject.Controllers.Inventory;
-
+/** Class that defines the properties of a product object. */
 public class Product {
 
     private int id;
